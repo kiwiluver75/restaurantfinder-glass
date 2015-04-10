@@ -1,26 +1,20 @@
 package com.google.android.glass.sample.compass;
 
 
-import com.google.android.glass.media.Sounds;
-import com.google.android.glass.widget.CardBuilder;
-import com.google.android.glass.widget.CardScrollAdapter;
-import com.google.android.glass.widget.CardScrollView;
-
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.media.AudioManager;
 import android.os.Bundle;
-import android.util.Log;
-import android.view.ContextMenu;
-import android.view.Menu;
-import android.view.MenuInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.AdapterView;
 
+import com.google.android.glass.media.Sounds;
+import com.google.android.glass.widget.CardBuilder;
+import com.google.android.glass.widget.CardScrollAdapter;
+import com.google.android.glass.widget.CardScrollView;
+
 import java.util.ArrayList;
-import java.util.List;
 
 /**
  * An {@link android.app.Activity} showing a tuggable "Hello World!" card.
@@ -109,7 +103,7 @@ public class MainActivity extends Activity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 switch (position) {
                     case 0:
-                        setContentView(R.layout.compass);
+                        //setContentView(R.layout.compass);
                         startActivity(new Intent(MainActivity.this, CompassService.class));
                         break;
                     case 1:
