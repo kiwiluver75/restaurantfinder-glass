@@ -16,20 +16,19 @@
 
 package com.google.android.glass.sample.compass;
 
-import com.google.android.glass.timeline.LiveCard;
-import com.google.android.glass.view.WindowUtils;
-
 import android.app.Activity;
 import android.content.ComponentName;
 import android.content.Intent;
 import android.content.ServiceConnection;
 import android.os.Bundle;
 import android.os.IBinder;
-import android.os.Handler;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
+
+import com.google.android.glass.timeline.LiveCard;
+import com.google.android.glass.view.WindowUtils;
 
 /**
  * This activity manages the options menu that appears when the user taps on the compass's live
@@ -157,8 +156,8 @@ public class CompassMenuActivity extends Activity {
      * Returns {@code true} when the {@code featureId} belongs to the options menu or voice
      * menu that are controlled by this menu activity.
      */
-    private boolean isMyMenu(int featureId) {
-        return featureId == Window.FEATURE_OPTIONS_PANEL ||
-               featureId == WindowUtils.FEATURE_VOICE_COMMANDS;
+    private boolean isMyMenu(int featureId)
+    {
+        return featureId == Window.FEATURE_OPTIONS_PANEL || featureId == WindowUtils.FEATURE_VOICE_COMMANDS;
     }
 }

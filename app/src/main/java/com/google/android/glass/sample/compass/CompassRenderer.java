@@ -207,15 +207,21 @@ public class CompassRenderer implements DirectRenderingCallback {
 
         try {
             canvas = mHolder.lockCanvas();
-        } catch (RuntimeException e) {
+        }
+
+        catch (RuntimeException e) {
             Log.d(TAG, "lockCanvas failed", e);
         }
 
-        if (canvas != null) {
+        if (canvas != null)
+
+        {
             canvas.drawColor(Color.BLACK);
             mLayout.draw(canvas);
 
-            try {
+            try
+
+            {
                 mHolder.unlockCanvasAndPost(canvas);
             } catch (RuntimeException e) {
                 Log.d(TAG, "unlockCanvasAndPost failed", e);

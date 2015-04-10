@@ -16,24 +16,31 @@
 
 package com.google.android.glass.sample.compass;
 
-import com.google.android.glass.sample.compass.model.Landmarks;
-import com.google.android.glass.sample.compass.model.Place;
-import com.google.android.glass.sample.compass.util.MathUtils;
-import com.google.android.glass.timeline.LiveCard;
-import com.google.android.glass.timeline.LiveCard.PublishMode;
-
 import android.app.PendingIntent;
 import android.app.Service;
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.Resources;
 import android.hardware.SensorManager;
+import android.location.Location;
 import android.location.LocationManager;
 import android.os.Binder;
 import android.os.IBinder;
 import android.speech.tts.TextToSpeech;
 
-import java.util.List;
+import com.google.android.glass.sample.compass.model.Landmarks;
+import com.google.android.glass.sample.compass.util.MathUtils;
+import com.google.android.glass.timeline.LiveCard;
+import com.google.android.glass.timeline.LiveCard.PublishMode;
+
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.net.URLConnection;
+import java.net.URLEncoder;
+
+
 
 /**
  * The main application service that manages the lifetime of the compass live card and the objects
@@ -51,22 +58,75 @@ public class CompassService extends Service {
         /**
          * Read the current heading aloud using the text-to-speech engine.
          */
-        public void readHeadingAloud() {
+        public void readHeadingAloud()
+        {
             float heading = mOrientationManager.getHeading();
 
+            Location loc = mOrientationManager.getLocation();
+
+            String longi = Double.toString(loc.getLongitude());
+
+            System.out.println(longi);
+            String lati = Double.toString(loc.getLatitude());
+
+            String alti = Double.toString(loc.getAltitude());
+
+            String error = Double.toString(loc.getAccuracy());
+
+            try {
+
+                String url = "http://labs.puneeth.org/techlab/getrestaurants";
+                String charset = "UTF-8";  // Or in Java 7 and later, use the constant: java.nio.charset.StandardCharsets.UTF_8.name()
+// ...
+
+                String query = String.format("param1=%s&param2=%s",
+                        URLEncoder.encode(lati, charset),
+                        URLEncoder.encode(longi, charset));
+
+
+                URLConnection connection = new URL(url + "?" + query).openConnection();
+                connection.setRequestProperty("Accept-Charset", charset);
+                InputStream response = connection.getInputStream();
+
+
+            }
+            catch (MalformedURLException e) {
+               return;
+            }
+            catch (IOException e) {
+                // openConnection() failed
+                // ...
+                return;
+            }
+
+
+
+
+
             Resources res = getResources();
+
             String[] spokenDirections = res.getStringArray(R.array.spoken_directions);
             String directionName = spokenDirections[MathUtils.getHalfWindIndex(heading)];
 
             int roundedHeading = Math.round(heading);
             int headingFormat;
-            if (roundedHeading == 1) {
+
+
+            if (roundedHeading == 1)
+            {
                 headingFormat = R.string.spoken_heading_format_one;
-            } else {
+            }
+
+            else {
                 headingFormat = R.string.spoken_heading_format;
             }
 
-            String headingText = res.getString(headingFormat, roundedHeading, directionName);
+
+
+            //String headingText = res.getString(headingFormat, roundedHeading, directionName);
+            String headingText = "Longitude is " + longi + " Latitude is " + lati + "Altitude is " + alti;
+
+
             mSpeech.speak(headingText, TextToSpeech.QUEUE_FLUSH, null);
         }
     }
