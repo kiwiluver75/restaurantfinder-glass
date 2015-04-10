@@ -18,11 +18,18 @@ public final class R {
         public static final int card_margin=0x7f070000;
     }
     public static final class drawable {
-        public static final int gradient50=0x7f020000;
-        public static final int ic_compass=0x7f020001;
-        public static final int ic_read_aloud=0x7f020002;
-        public static final int ic_stop_this=0x7f020003;
-        public static final int place_mark=0x7f020004;
+        public static final int burrito=0x7f020000;
+        public static final int burritobowl=0x7f020001;
+        public static final int fivestar=0x7f020002;
+        public static final int gradient50=0x7f020003;
+        public static final int ic_compass=0x7f020004;
+        public static final int ic_glass_logo=0x7f020005;
+        public static final int ic_launcher=0x7f020006;
+        public static final int ic_read_aloud=0x7f020007;
+        public static final int ic_stop=0x7f020008;
+        public static final int ic_stop_this=0x7f020009;
+        public static final int onestar=0x7f02000a;
+        public static final int place_mark=0x7f02000b;
     }
     public static final class id {
         public static final int compass=0x7f0b0000;
@@ -41,14 +48,22 @@ public final class R {
         public static final int landmarks=0x7f050000;
     }
     public static final class string {
-        public static final int app_name=0x7f080000;
-        public static final int magnetic_interference=0x7f080001;
-        public static final int pitch_too_steep=0x7f080002;
-        public static final int place_text_format=0x7f080003;
-        public static final int read_aloud=0x7f080004;
-        public static final int spoken_heading_format=0x7f080005;
-        public static final int spoken_heading_format_one=0x7f080006;
-        public static final int stop_this=0x7f080007;
+        public static final int Review1=0x7f080000;
+        public static final int Review2=0x7f080001;
+        public static final int Reviewer1=0x7f080002;
+        public static final int Reviewer2=0x7f080003;
+        public static final int app_name=0x7f080004;
+        public static final int magnetic_interference=0x7f080005;
+        public static final int pitch_too_steep=0x7f080006;
+        public static final int place_text_format=0x7f080007;
+        public static final int read_aloud=0x7f080008;
+        public static final int spoken_heading_format=0x7f080009;
+        public static final int spoken_heading_format_one=0x7f08000a;
+        public static final int stop_this=0x7f08000b;
+        public static final int title_activity_hours=0x7f08000c;
+        public static final int title_activity_main=0x7f08000d;
+        public static final int title_activity_menus=0x7f08000e;
+        public static final int title_activity_reviews=0x7f08000f;
     }
     public static final class style {
         public static final int MenuTheme=0x7f090000;

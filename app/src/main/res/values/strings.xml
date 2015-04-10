@@ -16,10 +16,6 @@
 
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
 
-    <!-- Application name for the Compass. The name could appear in the disambiguation
-        menu. [CHAR LIMIT=30] -->
-    <string name="app_name">Compass</string>
-
     <!-- Abbreviations for the 16 compass points, starting at north and going clockwise 22.5 degrees
         at each step. [CHAR LIMIT=3] -->
     <string-array name="direction_abbreviations">
@@ -74,4 +70,17 @@
     <!-- Tip message warning the user that Glass is detecting too much magnetic interference to be accurate. [CHAR LIMIT=45] -->
     <string name="magnetic_interference">Glass is detecting too much interference</string>
 
+
+    <!-- FOR THE REVIEWS -->
+    <string name="Reviewer1">BILLY BOB JONES</string>
+    <string name="Review1">BEFORE I ATE AT CHIPOTLE, I WAS A BOY. NOW I AM A MAN.</string>
+    <string name="Reviewer2">Jimmy John Jim</string>
+    <string name="Review2">I can\'t figure out how to rate 5 stars?!</string>
+
+    <string name="title_activity_menus">Menus</string>
+    <string name="title_activity_reviews">Reviews</string>
+    <string name="title_activity_hours">Hours</string>
+
+    <string name="app_name">Restaurant Finder</string>
+    <string name="title_activity_main">Restaurant Finder</string>
 </resources>
